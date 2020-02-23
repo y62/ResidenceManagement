@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Update Residence</title>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="user">Lejere</a></li>
+        <li role="presentation"><a href="consumption">Forbrug</a></li>
+        <li role="presentation"><a href="role">Rolle Administration</a></li>
+        <li role="presentation"><a href="residence">Bolig Information</a></li>
+        <li role="presentation"><a href="news/1">Nyhed</a></li>
+        <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+            <input type="submit" value="Log Out" class="btn btn-default"/>
+        </form>
+    </ul>
+    <div align="center">
+
+        <form th:method="Post" th:action="@{/residenceUpdate}" th:object="${residence}">
+
+            <input type="hidden" th:field="${residence.residenceId}"/>
+
+            <p>Username: </p>
+            <input type="text" th:field="${residence.username}"/>
+
+            <p>Kundenummer: </p>
+            <input type="text" th:field="${residence.rentalNumber}"/>
+
+            <p>Størrelse: </p>
+            <input type="text" th:field="${residence.size}"/>
+
+            <p>Værelser: </p>
+            <input type="text" th:field="${residence.room}"/>
+
+            <p>Adresse: </p>
+            <input type="text" th:field="${residence.address}"/>
+
+
+            <br>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Send"/>
+
+        </form>
+
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+
+</html>

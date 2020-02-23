@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Create User</title>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+<div class="container">
+    <div align="center">
+<h1> Opret Lejer </h1>
+    <form th:method="Post" th:action="@{/userCreate}">
+
+        <input type="hidden" th:field="${user.userId}"/>
+
+        <p>Fornavn:</p>
+        <input type="text" th:field="${user.firstName}"/>
+
+        <p>Efternavn:</p>
+        <input type="text" th:field="${user.lastName}"/>
+
+        <p>Email:</p>
+        <input type="text" th:field="${user.email}"/>
+
+        <p>Telefonnummer:</p>
+        <input type="text" th:field="${user.telephoneNumber}"/>
+
+        <p>Alder:</p>
+        <input type="text" th:field="${user.age}"/>
+
+        <p>CPR nummer:</p>
+        <input type="text" th:field="${user.cpr}"/>
+
+        <p>Username</p>
+        <input type="text" th:field="${user.username}"/>
+
+        <p>Password</p>
+        <input type="text" th:field="${user.password}"/>
+
+        <input type="hidden" th:field="${user.enabled}"/>
+        <br>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Godkend"/>
+
+    </form>
+
+</div>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+
+</html>

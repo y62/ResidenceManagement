@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <title>Role</title>
+</head>
+<body>
+<br>
+<div class="container">
+
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="user">Lejere</a></li>
+        <li role="presentation"><a href="consumption">Forbrug</a></li>
+        <li role="presentation"><a href="role">Rolle Administration</a></li>
+        <li role="presentation"><a href="residence">Bolig Information</a></li>
+        <li role="presentation"><a href="#">Nyhed</a></li>
+        <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+            <input type="submit" value="Log Out" class="btn btn-default"/>
+        </form>
+    </ul>
+    <div align="center">
+        <h1>ROLLER</h1>
+    </div>
+    <h2> <a class="btn btn-success" href="/roleCreate" role="button">Angiv Rolle</a> </h2>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>User Role ID</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="role: ${roles}">
+            <td th:text="${role.userRoleId}"/>
+            <td th:text="${role.username}"/>
+            <td th:text="${role.role}"/>
+            <td>
+                <a th:href="${'roleDelete/' + role.userRoleId}"class="btn-warning">Slet</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

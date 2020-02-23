@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Delete User</title>
+    <link rel="stylesheet" type="text/css" th:href="@{Styles.css}"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <div align="center">
+
+            <form action="#" th:action="@{/userDelete}" method="post">
+                <h1 class="btn-warning"> WARNING </h1>
+                <h3>You are deleting</h3>
+                <h2 th:text="'Lejer ID:  ' + ${user.userId}"></h2>
+                <h2 th:text="'Navn:  ' + ${user.firstName}"></h2>
+                <h2 th:text="'Efternavn:  ' + ${user.lastName}"></h2>
+                <input type="hidden" th:field="${user.userId}"/>
+                <input class="btn btn-success btn-lg" type="submit" value="YES"/>
+                <a href="/" class="btn btn-danger btn-lg">NO</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>

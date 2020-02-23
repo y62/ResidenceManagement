@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <title>Residence</title>
+</head>
+<body>
+<br>
+<div class="container">
+
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="user">Lejere</a></li>
+        <li role="presentation"><a href="consumption">Forbrug</a></li>
+        <li role="presentation"><a href="role">Rolle Administration</a></li>
+        <li role="presentation"><a href="residence">Bolig Information</a></li>
+        <li role="presentation"><a href="news/1">Nyhed</a></li>
+        <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+            <input type="submit" value="Log Out" class="btn btn-default"/>
+        </form>
+    </ul>
+    <div align="center">
+        <h1>BOLIG INFORMATION</h1>
+    </div>
+    <h2> <a class="btn btn-success" href="/residenceCreate" role="button">Opret Bolig Information</a> </h2>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Bolig ID</th>
+            <th>Username</th>
+            <th>Lejemålsnummer</th>
+            <th>Boligstørrelse</th>
+            <th>Værelse</th>
+            <th>Adresse</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="residence: ${residences}">
+            <td th:text="${residence.residenceId}"/>
+            <td th:text="${residence.username}"/>
+            <td th:text="${residence.rentalNumber}"/>
+            <td th:text="${residence.size}"/>
+            <td th:text="${residence.room}"/>
+            <td th:text="${residence.address}"/>
+            <td>
+                <a th:href="${'residenceUpdate/' + residence.residenceId}"class="btn-success">Opdater</a>
+                <a th:href="${'residenceDelete/' + residence.residenceId}"class="btn-warning">Slet</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

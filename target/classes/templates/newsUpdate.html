@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>News Update</title>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+<div align="center">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="/">Home</a></li>
+            <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+                <input type="submit" value="Log Out" class="btn btn-default"/>
+            </form>
+        </ul>
+        <form th:method="Post" th:action="@{/newsUpdate}" th:object="${news}">
+
+            <input type="hidden" th:field="${news.newsId}"/>
+            <h1>Rediger Nyhed</h1>
+            <p>Overskift:</p>
+            <input type="text" th:field="${news.newsHeadline}"/>
+            <br>
+            <br>
+            <p>Tekst:</p>
+            <textarea type="text" rows="10" cols="50" th:field="${news.newsText}"/>
+            <br>
+            <input class="btn btn-success btn-lg" type="submit" input="button" value="Godkend">
+
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+
+</html>

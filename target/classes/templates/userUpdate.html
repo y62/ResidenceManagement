@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Update User</title>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="/">Home</a></li>
+    <li role="presentation"><a href="user">Lejere</a></li>
+    <li role="presentation"><a href="consumption">Forbrug</a></li>
+    <li role="presentation"><a href="role">Rolle Administration</a></li>
+    <li role="presentation"><a href="residence">Bolig Information</a></li>
+    <li role="presentation"><a href="news/1">Nyhed</a></li>
+    <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+        <input type="submit" value="Log Out" class="btn btn-default"/>
+    </form>
+</ul>
+<div class="container">
+    <div align="center">
+    <h1>Redigere Lejer: <span th:text="${user.firstName}"></span></h1>
+
+    <form th:method="Post" th:action="@{/userUpdate}" th:object="${user}">
+
+        <input type="hidden" th:field="${user.userId}"/>
+
+        <p>Enter first name</p>
+        <input type="text" th:field="${user.firstName}"/>
+
+        <p>Enter last name</p>
+        <input type="text" th:field="${user.lastName}"/>
+
+        <p>Enter email</p>
+        <input type="text" th:field="${user.email}"/>
+
+        <p>Enter telephone number</p>
+        <input type="text" th:field="${user.telephoneNumber}"/>
+
+        <p>Enter age</p>
+        <input type="text" th:field="${user.age}"/>
+
+        <p>Enter cpr</p>
+        <input type="text" th:field="${user.cpr}"/>
+
+        <p>Enter username</p>
+        <input type="text" th:field="${user.username}"/>
+
+        <p>Enter password</p>
+        <input type="text" th:field="${user.password}"/>
+ <br>
+<br>
+        <input class="btn btn-primary" type="submit" value="Send"/>
+
+    </form>
+
+</div>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+
+</html>

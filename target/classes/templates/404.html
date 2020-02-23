@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <title>404</title>
+</head>
+    <title>Not access!</title>
+</head>
+<body>
+<div class="container">
+    <div align="center">
+        <div class="container">
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="/">Home</a></li>
+    <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+        <input type="submit" value="Log Out" class="btn btn-default"/>
+    </form>
+</ul>
+        </div>
+    </div>
+</div>
+<div align="center">
+<h1>Du har ikke tilladelse til denne side</h1>
+    <p><a class="btn btn-primary btn-lg active" href="userFrontPage" role="button">Tilbage til LEJER</a></p>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

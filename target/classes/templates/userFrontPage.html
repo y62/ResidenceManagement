@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>User Front Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{Styles.css}"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <title>User Page</title>
+</head>
+<body>
+<div class="container">
+
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="consumption">Forbrug</a></li>
+        <li role="presentation"><a href="news/1">Nyhed</a></li>
+        <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+            <input type="submit" value="Log Out" class="btn btn-default"/>
+        </form>
+    </ul>
+<div align="center">
+    <h1>Velkommen til BASH lejer side</h1>
+    <img src="bashlogo.png" alt="Logo">
+    <p th:text="${contact}">Hello</p>
+</div>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

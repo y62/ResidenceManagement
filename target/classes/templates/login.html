@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div align="center">
+    <h1>BASH LOGIN</h1>
+    <div th:if="${param.error}">
+        <p style="color: red">Forkert Username eller Password</p>
+
+    </div>
+    <div th:if="${param.logout}">
+        <h1 style="color: blue">Logget ud.</h1>
+    </div>
+    <form th:action="@{/login}" method="post">
+        <tr>
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3" id="username" name="username" autofocus="autofocus" />
+            </div>
+        </tr>
+        <tr>
+            <div class="input-group input-group-lg">
+                <input type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon3" id="password" name="password" autofocus="autofocus" />
+            </div>
+        </tr>
+        <br>
+        <tr>
+            <td><input class="btn btn-primary btn-lg" type="submit" input="button" value="Log in"></td>
+        </tr>
+    </form>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
